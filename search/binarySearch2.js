@@ -1,29 +1,46 @@
-function BinarySearch(arr,target)
-{
-    let leftIndex=0
-    let rightIndex=arr.length-1
-    if(target<0 ){
-        return null
+function binarySearch(arr,target){
+    let start=0
+    let end=arr.length-1
+    if(start>end){
+        return "not found"
+    }
+    while(start<=end){
+        let mid=Math.floor((start+end)/2)
+        if(arr[mid]==target){
+            return mid
+        }else if(arr[mid]>target){
+            start=mid+1
+        }else{
+            end=mid-1
+        }
     }
 
-    if(target==0){
-        return arr[0].value
-    }else{
-        while(leftIndex<=rightIndex){
-            let middleIndex=Math.floor((leftIndex+rightIndex)/2)
-            if(arr[middleIndex]===target){
-                return middleIndex
-            }
-            if(arr[middleIndex]>target){
-                rightIndex=middleIndex-1
-            }else{
-                leftIndex=middleIndex+1
-            }
-        }
-        return -1
-    }
-    
+
+
 }
-let array=[1,2,3,4,5]
-console.log("hello")
-console.log(BinarySearch(array,3))
+const array=[5,4,2,8,6,7,6]
+array.sort((a,b)=>b-a);
+// const set=new Set(array)   for removing dup
+// let arr=[...set]
+// const arr=Array.from(set)
+console.log(array)
+console.log("the position 4 is:"+ binarySearch(array,4) )
+
+// function binarySearch(arr,target){
+//     let start=0
+//     let end=arr.length-1
+//     return toSearch(arr,target,start,end)
+// }
+// function toSearch(arr,target,start,end){
+//     if(start>end){
+//         return null
+//     }
+//     let mid=Math.floor((start+end)/2)
+//     if(arr[mid]==target){
+//         return mid
+//     }else if(arr[mid]<target){
+//         return toSearch(arr,target,start,mid-1)
+//     }else{
+//         return toSearch(arr,target,mid+1,end)
+//     }
+// }
