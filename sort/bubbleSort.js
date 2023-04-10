@@ -1,17 +1,35 @@
+// function bubble(arr){
+//     for(i=0;i<arr.length;i++){
+//         let swapped=false
+//         for(j=1;j<arr.length-i;j++){
+//             if(arr[j]<arr[j-1]){
+//                 let temp=arr[j]
+//                 arr[j]=arr[j-1]
+//                 arr[j-1]=temp
+//                 swapped=true;
+                
+//             }
+//         }
+//         if(!swapped){
+//             break
+//         }   
+//     }
+//     return arr
+// }
+//const array=[1,2,3,4,5]  time complexity will be best case it means array is sorted(o(n))
+const array=[8,5,3,2,6]   //time complexity will be in worst case (o(n^2))
+console.log(bubble(array))
+
+
 function bubble(arr){
-    let swapped
-    do{
-    swapped=false
-for(let i=0;i<arr.length-1;i++){
-    if(arr[i]>arr[i+1]){
-    let temp=arr[i]
-    arr[i]=arr[i+1]
-    arr[i+1]=temp
-    swapped=true;
+    for(i=0;i<arr.length;i++){
+        for(j=1;j<arr.length-i;j++){
+            if(arr[j]<arr[j-1]){
+                let temp=arr[j]
+                arr[j]=arr[j-1]
+                arr[j-1]=temp
+            }
+        }
     }
+    return arr
 }
-    }while(swapped)
-}
-let array=[-6,20,8,-2,4]
-bubble(array)
-console.log(array)
